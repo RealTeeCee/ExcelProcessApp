@@ -1,0 +1,74 @@
+openapi: 3.0.1
+info:
+  title: OpenApi Specification - Nguyen Test ClickAndLearn
+  description: OpenApi documentation for Spring Security
+  termsOfService: https://cmapi.com
+  contact:
+    name: ClickAndLearnProject
+    url: https://cmapi.com
+    email: contact@cmproj.com
+  license:
+    name: Licences
+    url: https://some-url.com
+  version: "1.0"
+servers:
+  - url: http://localhost:8080
+security:
+  - bearerAuth: []
+paths:
+  "/v1/upload":
+    post:
+      tags:
+        - Upload Excel
+      operationId: uploadExcel
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - files
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        "200":
+          description: OK
+          content:
+            "application/json":
+              schema:
+                "$ref": "#/components/schemas/BaseDto"
+components:
+  schemas:
+    BaseDto:
+      type: object
+      properties:
+        antType:
+          type: string
+          enum:
+            - success
+            - error
+            - warning
+        message:
+          type: string
+    ErrorDetails:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+        antType:
+          type: string
+          enum:
+            - success
+            - error
+            - warning
+        message:
+          type: string
+        details:
+          type: string
+        statusCode:
+          type: string
