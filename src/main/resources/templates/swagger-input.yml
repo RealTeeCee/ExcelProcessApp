@@ -25,15 +25,14 @@ paths:
         content:
           multipart/form-data:
             schema:
-              required:
-                - files
               type: object
               properties:
                 files:
-                  type: array
-                  items:
-                    type: string
-                    format: binary
+                  type: string
+                  format: file
+            encoding:
+              files: 
+                contentType: application/octet-stream        
       responses:
         "200":
           description: OK
@@ -54,6 +53,17 @@ components:
             - warning
         message:
           type: string
+    MyExcelFile:
+      type: object
+      properties:
+        bank_date:
+          type: string
+        bank_ref:
+          type: string
+        description:
+          type: string
+        credit:
+          type: number
     ErrorDetails:
       type: object
       properties:
