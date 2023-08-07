@@ -67,4 +67,9 @@ public class ExcelProcessServiceImpl implements ExcelProcessService {
         });
 
     }
+
+    @Override
+    public void getInputStream(InputStream data) {
+       
+    }
 }

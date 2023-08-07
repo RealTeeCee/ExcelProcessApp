@@ -23,17 +23,11 @@ paths:
       operationId: uploadExcel
       requestBody:
         content:
-          multipart/form-data:
+          application/octet-stream:
             schema:
-              required:
-                - files
-              type: object
-              properties:
-                files:
-                  type: array
-                  items:
-                    type: string
-                    format: binary
+              type: string
+              format: file
+        required: true
       responses:
         "200":
           description: OK

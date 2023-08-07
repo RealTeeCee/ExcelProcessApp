@@ -13,4 +13,5 @@ public interface ExcelProcessService {
     public BaseDto uploadExcel();
 
     void getInputStreamFromFluxDataBuffer(Flux<DataBuffer> data) throws IOException;
+    void getInputStream(InputStream data);
 }
