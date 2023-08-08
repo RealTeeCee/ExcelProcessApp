@@ -21,6 +21,12 @@ paths:
       tags:
         - Upload Excel
       operationId: uploadExcel
+      parameters:
+        - name: filename
+          in: query
+          required: true
+          schema:
+            type: string            
       requestBody:
         content:
           application/octet-stream:
@@ -66,3 +72,14 @@ components:
           type: string
         statusCode:
           type: string
+    MyExcelFile:
+      type: object
+      properties:
+        bank_date:
+          type: string
+        bank_ref:
+          type: string
+        description:
+          type: string
+        credit:
+          type: number
